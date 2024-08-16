@@ -31,13 +31,23 @@ Menüden yapabileceğiniz işlemleri seçebilirsiniz.
 ## Kullanım
 
 1. **Kişi Ekle:** `1` tuşuna basarak yeni bir kişi ekleyebilirsiniz.
+
    ![Kişi Ekle](add_person.png)
+
 2. **Kişileri Listele:** `2` tuşuna basarak rehberdeki tüm kişileri listeleyebilirsiniz.
+
    ![Kişileri Listele](list_people.png)
+
 3. **Kişi Ara:** `3` tuşuna basarak bir kişinin ismine göre arama yapabilirsiniz.
+
    ![Kişi Ara](search_person.png)
+
 4. **Kişiyi Düzelt:** `4` tuşuna basarak bir kişinin telefon numarasını güncelleyebilirsiniz.
+
    ![Kişiyi Düzelt](update_person.png)
+
 5. **Kişiyi Sil:** `5` tuşuna basarak bir kişiyi rehberden silebilirsiniz.
+
    ![Kişiyi Sil](delete_person.png)
+   
 6. **Çıkış:** `6` tuşuna basarak uygulamadan çıkabilirsiniz.
