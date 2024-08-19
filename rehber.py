@@ -98,5 +98,5 @@ def rehber_uygulaması():
         else:
             print("Geçersiz seçim. Lütfen tekrar deneyin.")
 
-# Rehber Uygulamasını başlat
+# Rehber Uygulamasını başlat.
 rehber_uygulaması()
