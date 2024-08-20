@@ -5,8 +5,10 @@ def rehber_dosyası_oku(dosya_adi):
     if os.path.exists(dosya_adi):
         with open(dosya_adi, 'r') as dosya:
             for satır in dosya:
-                isim, telefon = satır.strip().split(':')
-                rehber[isim] = telefon
+                parcalar = satır.strip().split(':', 1)
+                if len(parcalar) == 2:
+                    isim, telefon = parcalar
+                    rehber[isim] = telefon
     return rehber
 
 def rehber_dosyası_yaz(dosya_adi, rehber):
@@ -14,23 +16,13 @@ def rehber_dosyası_yaz(dosya_adi, rehber):
         for isim, telefon in rehber.items():
             dosya.write(f"{isim}:{telefon}\n")
 
-def menu():
-    print("\n--- Rehber Uygulaması ---")
-    print("1. Kişi Ekle")
-    print("2. Kişileri Listele")
-    print("3. Kişi Ara")
-    print("4. Kişiyi Düzelt")
-    print("5. Kişiyi Sil")
-    print("6. Çıkış")
-    choice = input("Seçiminiz nedir? ")
-    return choice
-
 def kişi_ekle(rehber, dosya_adi):
     isim = input("Kişinin ismi: ")
     telefon = input("Kişinin telefon numarası: ")
     rehber[isim] = telefon
     rehber_dosyası_yaz(dosya_adi, rehber)
     print(f"{isim} isimli kişi rehbere eklendi.")
+    input("Devam etmek için Enter'a basın...")
 
 def kişileri_listele(rehber):
     if not rehber:
@@ -38,6 +30,7 @@ def kişileri_listele(rehber):
     else:
         for isim, telefon in rehber.items():
             print(f"İsim: {isim}, Telefon: {telefon}")
+    input("Devam etmek için Enter'a basın...")
 
 def kişi_ara(rehber):
     isim = input("Aramak istediğiniz kişinin ismi: ").lower()
@@ -49,6 +42,7 @@ def kişi_ara(rehber):
             break
     if not bulundu:
         print(f"{isim} isimli kişi rehberde bulunmamaktadır.")
+    input("Devam etmek için Enter'a basın...")
 
 def kişi_düzelt(rehber, dosya_adi):
     isim = input("Düzeltmek istediğiniz kişinin ismi: ").lower()
@@ -63,6 +57,7 @@ def kişi_düzelt(rehber, dosya_adi):
             break
     if not bulundu:
         print(f"{isim} isimli kişi rehberde bulunmamaktadır.")
+    input("Devam etmek için Enter'a basın...")
 
 def kişi_sil(rehber, dosya_adi):
     isim = input("Silmek istediğiniz kişinin ismi: ").lower()
@@ -76,6 +71,18 @@ def kişi_sil(rehber, dosya_adi):
             break
     if not bulundu:
         print(f"{isim} isimli kişi rehberde bulunmamaktadır.")
+    input("Devam etmek için Enter'a basın...")
+
+def menu():
+    print("\n--- Rehber Uygulaması ---")
+    print("1. Kişi Ekle")
+    print("2. Kişileri Listele")
+    print("3. Kişi Ara")
+    print("4. Kişiyi Düzelt")
+    print("5. Kişiyi Sil")
+    print("6. Çıkış")
+    choice = input("Seçiminiz nedir? ")
+    return choice
 
 def rehber_uygulaması():
     dosya_adi = "rehber.txt"
